@@ -22,22 +22,23 @@ public class fact_Iterate {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System. out.print("Enter a positive integer: ");
-
+        int n ; 
         // Input validation
-        if (!sc.hasNextInt()) {
-            System.out.println(" Please enter a valid integer.");
-            sc.close();
-            return;
+        while(true){
+            
+            try{
+                 n = sc.nextInt(); 
+                if(n<0){
+                    System. out.println("Please a non-negative integer");
+                    continue ;  
+                }
+            }
+            catch( InputMismatchedException e ){
+                System.out.println("Invalid Input, Please Enter an integer") ; 
+                sc.nextLine(); 
+            }
         }
-
-        int n = sc.nextInt();
-        sc.close();
-
-        if (n < 0) {
-            System.out.println(" Factorial is not defined for negative numbers.");
-            return;
-        }
-
+    
         //  For smaller numbers (<=13), use int (faster, simpler)
         if (n <= 13) {
             int factorial = 1;
@@ -56,3 +57,4 @@ public class fact_Iterate {
         }
     }
 }
+
